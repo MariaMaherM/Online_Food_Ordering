@@ -1,0 +1,299 @@
+﻿@model Online_Food_Ordering.Models.User
+@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.0.0.js"></script>
+
+<h2>Welcome @Session["Name"].ToString()</h2>
+
+    <form>
+        <div id="ParentDiv">
+
+            <div id="first">
+               
+                    <div class="block one">
+                        <p>  </p>
+                        <p>  </p>
+                        <p>  </p>
+                        <p>  </p>
+                        <p>  </p>
+                        <p>  </p>
+                <p style="font:bold"> You Can Edite Your Data Here</p>
+
+                <button type="button" onclick="location.href='@Url.Action("EditUser","User",new { id = Session["ID_User"] })'  ">
+                    Edit My Data
+                </button>
+           </div>
+                
+                    <div class="block two">
+                        <p >  </p>
+                        <p>  </p>
+                        <p>  </p>
+                       <p >  </p>
+                        <p>  </p>
+                        <p>  </p>
+                <p style="font:bold">          And Enjoy For Food Here</p>
+
+                <button type="button" onclick="location.href='@Url.Action("MakeOrder","User",new { id = Session["ID_User"] })'  ">
+                    Make Orders
+                </button>
+                        
+
+            </div>
+
+                <div class="block three">
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p style="font:bold">          Show Yuur Previous Bills Here</p>
+
+                    <button type="button" onclick="location.href='@Url.Action("previousBill","User",new { id = Session["ID_User"] })'  ">
+                        Previous Bills
+                    </button>
+
+                </div>
+                <div class="block four">
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p style="font:bold">          Show All Food Here</p>
+
+                    <button type="button" onclick="location.href='@Url.Action("showAllFood","User",new { id = Session["ID_User"] })'  ">
+                        All Food
+                    </button>
+
+                </div>
+
+
+                </div>
+            
+
+            <div id="second">
+                @{
+                    if (Session["image"] == null)
+                    {
+                        
+                            @Html.DisplayFor(modelItem => Session["image"])
+                        
+                    }
+                    else
+                    {
+                        ViewBag.image = Session["image"];
+                        var base64 = Convert.ToBase64String(ViewBag.image);
+                        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+                        <img src='@imgsrc' style="max-width:200px;max-height:400px;border-radius:75%" class="img-circle" />
+                    }
+                }
+            </div>
+
+
+           
+
+        </div>
+        
+    </form>
+
+
+
+                <marquee style="font-size:large; font-style:italic; ">Enjoy For Our Food , Will Find Here All Food That You Want</marquee>
+
+
+                <p></p>
+                @{ViewBag.id = Session["ID_User"];
+
+                }
+
+
+
+
+                <style>
+                    .img-circle {
+                        margin-left: -25px;
+                        position: absolute;
+                        margin-top: -50px;
+                    }
+
+
+
+
+
+
+
+
+
+                    .block {
+                        position: absolute;
+                        text-align: center;
+                        -webkit-animation: scaledown .4se ease;
+                        animation: scale 0.4s linear;
+                        animation-fill-mode: forwards;
+                    }
+
+                        .block:hover {
+                            z-index: 100;
+                            animation: scale 0.4s linear;
+                            animation-fill-mode: forwards;
+                            -webkit-animation: scaledown .4se ease;
+                        }
+
+                    @@keyframes scaledown {
+
+                        0% {
+                            -webkit-transform: scale(1.1);
+                            transform: scale(1.1);
+                        }
+
+                        100% {
+                            -webkit-transform: scale(1.0);
+                            transform: scale(1.0);
+                        }
+                    }
+
+
+                    @@keyframes scale {
+
+                        0% {
+                            -webkit-transform: scale(1);
+                            transform: scale(1);
+                        }
+
+                        100% {
+                            -webkit-transform: scale(1.1);
+                            transform: scale(1.1);
+                            box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.3);
+                        }
+                    }
+
+
+
+
+
+
+                    #first {
+                        width: 1000px;
+                        height: 500px;
+                        float: left;
+                        top:-300px;
+                        
+                        
+                      
+                        
+                    }
+
+                    #second {
+                        width: 50px;
+                        height: 500px;
+                        float: left;
+                       
+       
+                    }
+
+                    .one {
+                        width: 200px;
+                        height: 150px;
+                        left: 180px;
+                        position: absolute;
+                        border: double;
+                        border-style: none;
+                        top: 200px;
+                    }
+
+                    .two {
+                        top: 200px;
+                        left: 500px;
+                        position: absolute;
+                        width: 200px;
+                        height: 150px;
+                        border: double;
+                        border-style: none;
+                    }
+
+                    .three {
+                        top: 400px;
+                        left: 180px;
+                        position: absolute;
+                        width: 200px;
+                        height: 150px;
+                        border: double;
+                        border-style: none;
+                    }
+                    
+                    .four {
+                        top: 400px;
+                        left: 500px;
+                        position: absolute;
+                        width: 200px;
+                        height: 150px;
+                        border: double;
+                        border-style: none;
+                    }
+
+
+                    button {
+                        font-style: initial;
+                        font-size: large;
+                        background-size: 100px;
+                    }
+
+                    p {
+                        font-style: italic;
+                        font-size: large;
+                    }
+                </style>
+                <script>
+
+    $(document).ready(function () {
+
+        $(".one").mouseenter(function ()
+        {
+            $(this).width(300);
+        })
+        $(".one").mouseleave(function () {
+            $(this).width(200);
+
+
+        })
+
+        $(".two").mouseenter(function () {
+
+            $(this).width(300);
+        })
+        $(".two").mouseleave(function () {
+            $(this).width(200);
+
+        })
+
+        $(".three").mouseenter(function () {
+
+            $(this).width(300);
+        })
+        $(".three").mouseleave(function () {
+            $(this).width(200);
+
+        })
+
+        $(".four").mouseenter(function () {
+
+            $(this).width(300);
+        })
+        $(".four").mouseleave(function () {
+            $(this).width(200);
+
+        })
+
+
+    });
+                </script>
+
+
+
+
+

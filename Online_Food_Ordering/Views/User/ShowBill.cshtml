@@ -1,0 +1,55 @@
+﻿@model Online_Food_Ordering.Models.Bill
+
+@{
+    ViewBag.Title = "ShowBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowBill</h2>
+
+<div>
+    <h4>Bill</h4>
+    <div class="block">
+    <dl class="dl-horizontal">
+        <p>
+            @Html.DisplayNameFor(model => model.Date) @Html.DisplayFor(model => model.Date)
+        </p>
+
+        
+
+        <p>
+            @Html.DisplayNameFor(model => model.Total_Price)     @Html.DisplayFor(model => model.Total_Price) LE
+
+
+        </p>
+
+       
+
+        <button type="button" onclick="location.href='@Url.Action("WelcomeUser","User")'">
+            I Accepted , Send Me My Orders
+        </button>
+        <button type="button" onclick="location.href='@Url.Action("DeleteOrder","User",new { id=Session["ID_User"] })'">
+            Cancle Orders
+        </button>
+
+    </dl>
+</div>
+    </div>
+
+
+
+<style>
+    .block {
+        background-color: rgba(86, 30, 56, 0.30);
+        border-radius: 30px;
+        width: 50%;
+        height: 25%;
+        padding-left: 50px;
+        padding-top: 30px;
+        margin-top: 20px;
+        margin-left: 260px;
+        text-align:center;
+        font-size:xx-large;
+
+    }
+</style>

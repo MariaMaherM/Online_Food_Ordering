@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.0.0.js"></script>
+<div id="one"><span style="font-size:120px">M</span>ake Your Pleasure </div>
+    <div id="o">With The Best Food Here</div>
+<div id="two">if you are a new client please register now<br/> if not login and continue </div>
+
+
+
+
+
+
+<div id="three">
+
+<button type="button" onclick="location.href='@Url.Action("Register", "Home")'">
+Register</button>
+
+
+
+<button type="button" onclick="location.href='@Url.Action("Login", "Home") '  ">
+Login</button>
+
+    </div>
+
+
+
+
+<style>
+
+    #one {
+    position:center;
+    margin-top:200px;
+    text-align:center;
+    font-size:80px;
+    color:#6A0427;
+
+    }
+    #o{
+         position:center;
+    text-align:center;
+    font-size:65px;
+    color:#6A0427;
+    margin-top:-10px;
+    }
+    #two{
+
+        position:center;
+    text-align:center;
+    font-size:30px;
+    color:#6A0427;
+    }
+
+    #three{
+          
+        margin-left:450px
+    }
+    button {
+
+    background-color: rgba(86, 30, 56, 0.30);
+    border: none;
+    color: #6A0427;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+</style>

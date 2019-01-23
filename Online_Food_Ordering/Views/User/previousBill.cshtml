@@ -1,0 +1,197 @@
+﻿@model IEnumerable<Online_Food_Ordering.Models.Bill>
+
+@{
+    ViewBag.Title = "previousBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.0.0.js"></script>
+
+<h3 style="position:center; color : antiquewhite ;text-align:center" > Here All Your Bills ,We Need To Increas That And Increas :D  </h3>
+
+<div class="first">
+
+    @foreach (var item in Model.Select((value, i) => new { i, value }))
+    {
+
+        var value = item.value;
+        var index = item.i;
+        if (index % 2 != 0)
+        {
+            <div class="block one">
+
+                <p style="color:white">
+                    @Html.LabelFor(modelItem => item.value.Date)   @Html.DisplayFor(modelItem => item.value.Date)
+                <p>
+                    <br />
+                <p style="color:white">
+                    @Html.LabelFor(modelItem => item.value.Total_Price)
+                    @Html.DisplayFor(modelItem => item.value.Total_Price, new { htmlAttributes = new { @class = "fontt" } })
+                </p>
+                <br />
+
+                <br />
+                
+
+
+
+
+
+
+
+            </div>
+
+
+
+        }
+        else
+        {
+            <div class="block two">
+
+           <p style="color:white">  
+               @Html.LabelFor(modelItem => item.value.Date)   @Html.DisplayFor(modelItem => item.value.Date) <p>
+    <br />
+<p style="color:white">
+   @Html.LabelFor(modelItem => item.value.Total_Price)
+                              @Html.DisplayFor(modelItem => item.value.Total_Price, new { htmlAttributes = new { @class = "fontt" } }) </p>
+    <br />
+
+
+
+    <br />
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        }
+    }
+
+
+
+    <button type="button" onclick="location.href='@Url.Action("WelcomeUser", "User") '  " style="font-style:italic;">
+        Back
+    </button>
+</div>
+
+
+
+
+<style>
+    .block {
+        position: relative;
+        text-align: center;
+        font-size: large;
+        -webkit-animation: scaledown .4se ease;
+        animation: scale 0.4s linear;
+        animation-fill-mode: forwards;
+    }
+
+        .block:hover {
+            z-index: 100;
+            animation: scale 0.4s linear;
+            animation-fill-mode: forwards;
+            -webkit-animation: scaledown .4se ease;
+        }
+
+    @@keyframes scaledown {
+
+        0% {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        100% {
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+        }
+    }
+
+
+    @@keyframes scale {
+
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        100% {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.3);
+        }
+    }
+    
+
+    #first {
+        width: 1000px;
+        height: auto;
+        float: left;
+        margin-left: 90px;
+    }
+
+    .one {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        border: double;
+        border-style: none;
+        top: auto;
+        padding-top: 20px;
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-bottom:30px;
+        background-color: rgba(86, 30, 56, 0.30);
+    }
+
+
+    .two {
+        top: auto;
+        left: 500px;
+        position: relative;
+        width: 300px;
+        height: 200px;
+        border: double;
+        border-style: none;
+        padding-top: 20px;
+        margin-top: 20px;
+        margin-left: 120px;
+        margin-bottom:30px;
+        background-color: rgba(86, 30, 56, 0.30);
+       
+    }
+</style>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".one").mouseenter(function () {
+            $(this).width(360);
+        })
+        $(".one").mouseleave(function () {
+            $(this).width(300);
+
+        })
+
+        $(".two").mouseenter(function () {
+
+
+            $(this).innerWidth(360);
+        })
+        $(".two").mouseleave(function () {
+            $(this).width(300);
+
+        })
+    });
+</script>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineFoodEntitiesStoreContainer" CdmEntityContainer="OnlineFoodModel">
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="OnlineFoodEntities.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="ID_Bill" ColumnName="ID_Bill" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="OnlineFoodEntities.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="ID_Food" ColumnName="ID_Food" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="OnlineFoodEntities.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Food_ID" ColumnName="Food_ID" />
+          <ScalarProperty Name="Bill_ID" ColumnName="Bill_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="OnlineFoodEntities.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

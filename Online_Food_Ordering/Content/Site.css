@@ -1,0 +1,67 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+      /*background:url(robin-stickel-82145-unsplash.jpg) center center no-repeat 
+            ;*/
+     background-size :cover;
+     position:relative;
+     overflow:auto;
+     width:100%;
+     height:1000%;
+     
+
+     background-image: 
+    /* top, transparent red */ 
+    linear-gradient(
+      rgba(0.25, 0, 0, 0.45), 
+      rgb(255, 255, 255)
+    ),
+    /* bottom, image */
+    url(robin-stickel-82145-unsplash.jpg);
+}
+
+
+::-webkit-scrollbar{
+    width:8px;
+    background-color:rgba(86, 30, 56, 0.30);
+
+}
+  /*background-image: linear-gradient(to bottom right,#002f4b,#dc4225);*/
+	    
+
+    
+
+}
+  
+.overlay{
+
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgb(128, 128, 128)
+
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    position:relative;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}

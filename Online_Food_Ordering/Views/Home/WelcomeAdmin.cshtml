@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "WelcomeAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.0.0.js"></script>
+
+<h2>Welcome Admin</h2>
+
+
+
+<br />
+<br /><br /><br /><br /><br />
+
+<br />
+<br /><br /><br /><br /><br />
+
+<br />
+<br /><br /><br /><br /><br />
+
+<br />
+<br /><br /><br /><br /><br />
+
+
+
+<div class="block one">
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p style="font:bold"> You Can Show All Food Here</p>
+
+    <button type="button" onclick="location.href='@Url.Action("ShowFood","Admin",new { id = Session["ID_User"] })'  ">
+        Show All Food
+    </button>
+</div>
+
+
+<div class="block two">
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p style="font:bold">          You Can Show All Clients Here</p>
+
+    <button type="button" onclick="location.href='@Url.Action("ShowClient","Admin",new { id = Session["ID_User"] })'  ">
+        Show All Clients
+    </button>
+
+
+</div>
+
+
+
+
+
+<div class="block three">
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p>  </p>
+    <p style="font:bold">          You Can Show All Bills That Have Been Done Here </p>
+
+    <button type="button" onclick="location.href='@Url.Action("AllBill","Admin",new { id = Session["ID_User"] })'  ">
+        All Bills
+    </button>
+
+
+</div>
+
+
+<style>
+    p {
+        position: center;
+        font-size: 40;
+        color: black;
+    }
+
+
+
+    section {
+        text-align: center;
+        font-style: italic;
+        font-size: x-large;
+    }
+
+
+    
+        
+        .block {
+         position:absolute;
+            text-align:center;
+            -webkit-animation:scaledown .4se ease;
+          
+             animation: scale 0.4s linear;
+            animation-fill-mode:forwards;
+            margin-left:230px;
+        
+        }
+        .block:hover{
+
+            z-index:100;
+            animation: scale 0.4s linear;
+            animation-fill-mode:forwards;
+             -webkit-animation:scaledown .4se ease;
+
+        }
+
+      @@keyframes scaledown{
+
+        0% {
+        
+        -webkit-transform:scale(1.1);
+        transform: scale(1.1);
+        
+        }
+        
+        100% {
+        
+        -webkit-transform:scale(1.0);
+        transform: scale(1.0);
+        
+        }
+
+        }
+
+
+       @@keyframes scale{
+
+        0% {
+        
+        -webkit-transform:scale(1);
+        transform: scale(1);
+        
+        }
+        
+        100% {
+        
+        -webkit-transform:scale(1.1);
+        transform: scale(1.1);
+        box-shadow: 10px 10px 60px 10px rgba(0,0,0,0.3);
+        
+        }
+
+        }
+
+       
+        .one {
+            width: 250px;
+            height: 150px;
+            left:100px;
+            position:absolute;
+            border:double;
+            border-style:none;
+            
+            top: 180px;
+           padding-top:20px;
+            
+        }
+      .two {
+          top:180px;
+          left : 500px;
+          position:absolute;
+       
+            width: 250px;
+            height: 150px;
+            
+            border:double;
+            border-style: none;
+             padding-top:20px;
+
+        }
+       .three{
+
+           top:380px;
+          left : 300px;
+          position:absolute;
+       
+            width: 250px;
+            height: 150px;
+            
+            border:double;
+            border-style: none;
+           padding-top:20px;
+
+      }
+
+
+</style>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".one").mouseenter(function () {
+            $(this).width(300);
+        })
+        $(".one").mouseleave(function () {
+            $(this).width(250);
+
+
+        })
+
+        $(".two").mouseenter(function () {
+
+            $(this).width(300);
+        })
+        $(".two").mouseleave(function () {
+            $(this).width(250);
+
+        })
+
+        $(".three").mouseenter(function () {
+
+            $(this).width(300);
+        })
+        $(".three").mouseleave(function () {
+            $(this).width(250);
+
+        })
+    });
+    </script>

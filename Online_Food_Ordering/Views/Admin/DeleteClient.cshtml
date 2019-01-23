@@ -1,0 +1,97 @@
+﻿@model Online_Food_Ordering.Models.User
+
+@{
+    ViewBag.Title = "DeleteClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteClient</h2>
+<h3 style="text-align:center;">Are you sure you want to delete this?                       </h3>
+<div class="block">
+
+
+
+    <p>
+        @Html.DisplayFor(model => model.Name)
+    </p>
+
+
+    <p>
+        @Html.DisplayFor(model => model.Email)
+    </p>
+
+
+
+
+    @{
+        if (Model.Image == null)
+        {
+
+            @Html.DisplayFor(modelItem => Model.Image)
+
+        }
+        else
+        {
+
+
+
+
+
+            var base64 = Convert.ToBase64String(Model.Image);
+            var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+
+            <img src='@imgsrc' style="max-width:150px;max-height:150px" border-radius:100%" class="img-circle" />
+        }
+    }
+
+
+
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="DeleteClinet" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+
+<style>
+    .block {
+        background-color: rgba(86, 30, 56, 0.30);
+        border-radius: 30px;
+        width: 50%;
+        height: 30%;
+        padding-top: 5px;
+        padding-bottom: 50px;
+        margin-top: 50px;
+        margin-left: 260px;
+        position: center;
+        font-size: xx-large;
+        text-align: center;
+        text-decoration: double;
+    }
+
+    .form-group {
+        margin-top: 30px;
+    }
+
+    .col-md-10 {
+        margin-left: 170px;
+        font-family: fantasy;
+        font-size: 30px;
+        margin-top: -20px;
+    }
+
+
+        .col-md-10 .btn-default {
+            color: blue;
+            margin-left: 50px;
+        }
+</style>

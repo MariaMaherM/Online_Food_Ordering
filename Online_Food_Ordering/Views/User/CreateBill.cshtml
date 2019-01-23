@@ -1,0 +1,82 @@
+﻿@*@model Online_Food_Ordering.Models.User
+
+@{
+    ViewBag.Title = "CreateBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateBill</h2>
+
+<button type="button" onclick="location.href='@Url.Action("ShowBill","User",new { id=Session["ID_User"] })'">
+    Show My Bill 
+</button>
+<button type="button" onclick="location.href='@Url.Action("ShowBill","User",new { id=Session["ID_User"] })'">
+    Back To Home
+</button>*@
+
+
+@model Online_Food_Ordering.Models.Bill
+
+@{
+    ViewBag.Title = "ShowBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.0.0.js"></script>
+
+<h2>ShowBill</h2>
+
+<div>
+    <h4>Bill</h4>
+    <div class="block">
+        <dl class="dl-horizontal">
+            <p style="color:white">
+               
+                @Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(model => model.Date)
+            </p>
+
+
+
+            <p style="color:white">
+                @Html.DisplayNameFor(model => model.Total_Price): @Html.DisplayFor(model => model.Total_Price) LE
+
+
+            </p>
+
+
+
+            <button type="button" onclick="location.href='@Url.Action("WelcomeUser", "User")'">
+                I Accepted , Send Me My Orders
+            </button>
+         
+
+
+            <button type="button" onclick="location.href='@Url.Action("DeleteBill", "User", new { id = Model.ID_Bill ,  onclick = "return confirm('Are you sure you want to delete this user?');", @class = "delete-button" } ) '  ">
+                Cancle , I Don't Accept
+            </button>
+
+
+        </dl>
+    </div>
+</div>
+
+
+
+<style>
+    .block {
+        background-color: rgba(86, 30, 56, 0.30);
+        border-radius: 30px;
+        width: 50%;
+        height: 25%;
+        padding-left: 50px;
+        padding-top: 30px;
+        margin-top: 20px;
+        margin-left: 260px;
+        text-align:center;
+    }
+</style>
+<script>
+  function reloadPage()
+  {
+    window.location.reload()
+  }
+</script>

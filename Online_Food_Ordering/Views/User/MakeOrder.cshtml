@@ -1,0 +1,138 @@
+﻿@model Online_Food_Ordering.ViewModel.SelectFood
+
+@{
+    ViewBag.Title = "MakeOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ViewBag.id = Session["ID_User"];
+        }
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+     
+
+    <div class="form-horizontal">
+       
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Order.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Order.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Order.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="block">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Order.Food_ID, "Food", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Order.Food_ID, ViewBag.pg as SelectList, "Select Food")
+                @Html.ValidationMessageFor(model => model.Order.Food_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Order.Bill_ID, "Bill_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Bill_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Order.Bill_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+       
+       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default"  />
+            </div>
+        </div>
+
+
+        <button type="button" onclick="location.href='@Url.Action("CreateBill","User")'">
+            Create My Bill </button>
+
+            </div>
+    </div>
+
+
+    <marquee>
+        <img src="~/Content/bjorn-radestrom-646516-unsplash.jpg" height="150" border="3" width="300"/>
+        <img src="~/Content/davide-cantelli-148407-unsplash.jpg" height="150" border="3" width="300 "/>
+        <img src="~/Content/lily-banse-365344-unsplash.jpg" height="150" border="3" width="300" />
+        <img src="~/Content/nick-karvounis-463853-unsplash.jpg" height="150" border="3" width="300" />
+        <img src="~/Content/robin-stickel-82145-unsplash.jpg" height="150" border="3" width="300" />
+        
+    </marquee>
+
+}
+
+
+<style>
+    .btn-default {
+         padding-right:30px;
+        padding-left:30px;
+ 
+    }
+    .col-md-2{
+
+        font-size:large;
+        margin-top:20px;
+        margin-left:30px;
+    }
+
+     .block {
+        background-color: rgba(86, 30, 56, 0.30);
+        border-radius: 30px;
+        width: 50%;
+        height: 25%;
+        padding-left: 50px;
+        padding-top: 5px;
+        margin-top: 100px;
+        margin-left: 230px;
+        position: center;
+    }
+    button {
+  
+        margin-left: 50px;
+        margin-bottom:20px;
+        background-color:cornsilk;
+        padding-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:10px;
+        font-size:large;
+          }
+    .form-group {
+        margin-top: 30px;
+    }
+
+    .col-md-10 {
+        margin-left: 170px;
+        font-size: 30px;
+        margin-top: -20px;
+    }
+
+
+        .col-md-10 .btn-default {
+            color: blue;
+            margin-left: 50px;
+
+        }
+        marquee{
+
+            margin-top:20px;
+        }
+    
+</style>
+
+<script>
+
+            alert("if you want to make other orders click ok if not click cancle and click show bill");
+</script>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
